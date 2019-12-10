@@ -16,5 +16,8 @@ body{
     background: rgb(74, 131, 255) ;
     color:#fffaf0;
     min-height: 150px;
-    
+}
+
+.active {
+    background: blue;
 }
