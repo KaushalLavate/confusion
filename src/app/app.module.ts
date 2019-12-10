@@ -14,13 +14,15 @@ import { from } from 'rxjs';
 
 import 'hammerjs';
 import { MenuComponent } from './menu/menu.component';
-import { DishDetailComponent } from './dish-detail/dish-detail.component';
+import { DishdetailsComponent } from './dishdetails/dishdetails.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    DishDetailComponent
+    DishdetailsComponent,
+    
   ],
   imports: [
     BrowserModule,
