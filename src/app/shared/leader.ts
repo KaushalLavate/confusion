@@ -1,6 +1,6 @@
 import { Leaders } from "../shared/leaders";
 
-export const LEADERS : Leaders[] =
+export const LEADERS : Leaders[] = 
     [
         {
           id: '0',

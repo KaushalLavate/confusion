@@ -28,5 +28,4 @@ export class DishdetailsComponent implements OnInit {
   goBack():void {
     this.location.back();
   }
-
 }
