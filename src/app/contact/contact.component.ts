@@ -27,7 +27,7 @@ export class ContactComponent implements OnInit {
       telnum: 0,
       email:'',
       agree: false,
-      contacttype: 'None',
+      contacttype: '',
       message:''
     });
   }
