@@ -1,4 +1,5 @@
 import { Dish } from "./dish";
+import { JsonPipe } from '@angular/common';
 
 export const DISHES: Dish[] = [
     {
