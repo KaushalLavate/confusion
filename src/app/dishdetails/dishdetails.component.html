@@ -15,6 +15,10 @@
                 </mat-card-title>
             </mat-card-header>
             <img mat-card-image src="{{BaseURL + dish.image}}" alt={{dish.name}}>
+            <div fxFlex *ngIf="errMess">
+                <h2>Error</h2>
+                <h4>{{errMess}}</h4>
+            </div>
             <mat-card-content>
                 <p>{{dish.description}}</p>
             </mat-card-content>
