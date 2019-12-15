@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import { Params,ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
 import { Dish } from "../shared/dish";
@@ -6,6 +6,7 @@ import { DishService } from "../services/dish.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Comment } from "../shared/comment";
 import {coerceNumberProperty} from '@angular/cdk/coercion';
+import { baseURL } from "../shared/baseurl";
 
 
 
@@ -42,14 +43,17 @@ export class DishdetailsComponent implements OnInit {
   constructor(private dishService: DishService,
     private route: ActivatedRoute,
     private location: Location,
-    private cmt: FormBuilder) {
-      this.createForm();
+    private cmt: FormBuilder,
+    @Inject('BaseURL') private BaseURL)  {
+      
      }
 
   ngOnInit() { 
+    this.createForm();
+
     let id = this.route.snapshot.params['id'];
     this.dishService.getDish(id)
-      .then(dish => this.dish = dish);
+      .subscribe(dish => this.dish = dish);
   }
 
   createForm() {
