@@ -54,10 +54,10 @@ export class DishdetailsComponent implements OnInit {
 
   createForm() {
     this.commentForm = this.cmt.group({
-      rating:[''],
+      rating:[5],
       comment:['',[Validators.required,Validators.minLength(2), Validators.maxLength(25)]],
       author:['',[Validators.required,Validators.minLength(2), Validators.maxLength(25)]],
-      date: ['5']
+      date: ['']
     });
 
     this.commentForm.valueChanges
@@ -78,6 +78,7 @@ export class DishdetailsComponent implements OnInit {
           for (const key in control.errors) {
             if (control.errors.hasOwnProperty(key)) {
               this.formErrors[field] += messages[key] + ' ';
+              
             }
           }
         }

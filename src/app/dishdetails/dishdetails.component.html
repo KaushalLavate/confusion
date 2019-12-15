@@ -38,6 +38,11 @@
                 <p mat-line>{{comment.rating}} stars</p>
                 <p mat-line>--{{comment.author}} {{comment.date | date}}</p>
             </mat-list-item>
+            <mat-list-item *ngIf="commentForm.valid">
+                <p mat-line *ngIf="!formErrors.comment">{{commentForm.value.comment}}</p>
+                <p mat-line>{{commentForm.value.rating}} stars</p>
+                <p mat-line *ngIf="!formErrors.author">--{{commentForm.value.author}}</p>
+            </mat-list-item>
         </mat-list>
     </mat-card>
     <div>
@@ -48,9 +53,21 @@
                     {{ formErrors.author}}
                 </mat-error>
         </mat-form-field>
-        <!--<mat-form-field>
-        <mat-slider min="1" max="5" step="1" value="1" tickInterval="1">Rating</mat-slider>
-        </mat-form-field>-->
+        
+            
+                <p>Rating</p>
+                    <mat-slider
+                        [max]="5"
+                        [min]="1"
+                        [step]="1"
+                        [value]="5"
+                        [thumbLabel]="true"
+                        [tickInterval]="1"
+                        matInput formControlName="rating">
+                    </mat-slider>
+            
+        
+            
         <p>
             <mat-form-field class="cmt">
               <textarea matInput formControlName="comment" placeholder="Comment" rows=12>
@@ -60,7 +77,7 @@
                 </mat-error>
             </mat-form-field>
         </p>
-        <button type="submit" mat-button class="background-primary" disabled="commentForm.formErrors.value">
+        <button type="submit" mat-button class="background-primary" [disabled]="!commentForm.valid">
             Submit
         </button>
         </form>
