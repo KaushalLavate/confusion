@@ -102,7 +102,7 @@ export class DishdetailsComponent implements OnInit {
     this.dishService.putDish(this.dishcopy)
       .subscribe(dish => {
         this.dish = dish;this.dishcopy = dish;
-      });
+      }); 
   }
 
   goBack():void {
