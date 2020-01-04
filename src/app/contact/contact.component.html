@@ -89,5 +89,25 @@
         Submit
       </button>
     </form>
+    <div *ngIf="showfeedback" [@visibility]="visibility" [@expand]>
+      <h3>Your Feedback</h3>
+      <mat-list-item>
+          <p matLine>First Name: {{feedback.firstname}}</p>
+          <p matLine>Last Name: {{feedback.lastname}}</p>
+          <p matLine>Tel. number: {{feedback.telnum}}</p>
+          <p matLine>Email: {{feedback.email}}</p>
+          <p matLine>Contact you?: {{feedback.agree}}</p>
+          <p matLine>How?: {{feedback.contacttype}}</p>
+          <p matLine>Feedback: {{feedback.message}}</p>
+      </mat-list-item>
+    </div>
+    <div *ngIf="showspinner || errMess">
+      <mat-spinner></mat-spinner>
+      <h4>Submitting Form ... </h4>
+    </div>
+    <div fxFlex *ngIf="errMess">
+      <h2>Error</h2>
+      <h4>{{errMess}}</h4>
+    </div>
   </div>
 </div>
